@@ -56,3 +56,7 @@ app.get("/callback", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Szerver fut a ${PORT} porton`));
+
+if (!response.ok) {
+    console.error(await response.text());
+    throw new Error(`HTTP error! status: ${response.status}`);
